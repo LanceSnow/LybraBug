@@ -37,7 +37,8 @@ contract LBR is ERC20 {
 
     function migrate(uint256 amount) external {
         require(totalSupply() + amount <= maxSupply, "exceeding the maximum supply quantity.");
-        ERC20(oldLBR).transferFrom(msg.sender, address(this), amount);
+        //Mock
+        // ERC20(oldLBR).transferFrom(msg.sender, address(this), amount);
         if(block.timestamp < bonusMigrationPeriod) {
             _mint(msg.sender, amount * 105 / 100);
         } else {
